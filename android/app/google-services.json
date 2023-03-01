@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "981802693983",
+    "project_id": "jobzee-b91e7",
+    "storage_bucket": "jobzee-b91e7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:981802693983:android:dd3e0fc589b7f1d39df2ea",
+        "android_client_info": {
+          "package_name": "com.example.jobzee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "981802693983-8tp10ol1hhn9jr732h4b2lbgukvsvor5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiMNzAANA-KPqMCYPqoMIJa9jlW_0Dswo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "981802693983-8tp10ol1hhn9jr732h4b2lbgukvsvor5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
