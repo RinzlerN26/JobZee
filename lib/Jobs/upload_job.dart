@@ -260,6 +260,21 @@ class _UploadJobNowState extends State<UploadJobNow> {
      print('Its not valid');
    }
  }
+ void getMyData() async{
+  final DocumentSnapshot userDoc=await FirebaseFirestore.instance.collection('users').doc(FirebaseAuth.instance.currentUser!.uid).get();
+  setState(() {
+    name=userDoc.get('name');
+    userImage=userDoc.get('userImage');
+    location=userDoc.get('location');
+  });
+ }
+ @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getMyData();
+  }
+
 
   @override
   Widget build(BuildContext context) {
