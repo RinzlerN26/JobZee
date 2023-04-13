@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           return const MaterialApp(
             home: Scaffold(
               body: Center(
-                child: Text('iJob clone app is being initialized',
+                child: Text('App is being initialized',
                 style: TextStyle(
                   color: Colors.cyan,
                   fontSize: 38,
@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
           return const MaterialApp(
             home: Scaffold(
               body: Center(
-                child: Text('An error has been occurred',
+                child: Text('An error has occurred',
                   style: TextStyle(
                       color: Colors.cyan,
                       fontSize: 40,
@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
         }
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'iJob Clone App',
+          title: 'Jobzee',
           theme: ThemeData(
             scaffoldBackgroundColor: Colors.black,
             primarySwatch: Colors.blue,
