@@ -4,18 +4,15 @@ import 'package:jobzee/Jobs/jobs_screen.dart';
 import 'package:jobzee/Widgets/job_widget.dart';
 
 class SearchScreen extends StatefulWidget {
-
   @override
   State<SearchScreen> createState() => _SearchScreenState();
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-
   final TextEditingController _searchQueryController = TextEditingController();
   String searchQuery = 'Search query';
 
-  Widget _buildSearchField()
-  {
+  Widget _buildSearchField() {
     return TextField(
       controller: _searchQueryController,
       autocorrect: true,
@@ -29,29 +26,26 @@ class _SearchScreenState extends State<SearchScreen> {
     );
   }
 
-  List<Widget> _buildActions()
-  {
+  List<Widget> _buildActions() {
     return <Widget>[
       IconButton(
         icon: const Icon(Icons.clear),
-        onPressed: (){
+        onPressed: () {
           _clearSearchQuery();
         },
       ),
     ];
   }
 
-  void _clearSearchQuery()
-  {
-    setState((){
+  void _clearSearchQuery() {
+    setState(() {
       _searchQueryController.clear();
       updateSearchQuery('');
     });
   }
 
-  void updateSearchQuery(String newQuery)
-  {
-    setState((){
+  void updateSearchQuery(String newQuery) {
+    setState(() {
       searchQuery = newQuery;
       print(searchQuery);
     });
@@ -59,21 +53,27 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(decoration: BoxDecoration(
-      gradient: LinearGradient(
-        colors: [Colors.deepOrange.shade300, Colors.blueAccent],
-        begin: Alignment.centerLeft,
-        end: Alignment.centerRight,
-        stops: const [0.2, 0.9],
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('assets/images/background.jpg'),
+          fit: BoxFit.cover,
+        ),
+
+        // gradient: LinearGradient(
+        //   colors: [Colors.deepOrange.shade300, Colors.blueAccent],
+        //   begin: Alignment.centerLeft,
+        //   end: Alignment.centerRight,
+        //   stops: const [0.2, 0.9],
+        // ),
       ),
-    ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           flexibleSpace: Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [Colors.deepOrange.shade300, Colors.blueAccent],
+                colors: [Colors.blue, Colors.purple],
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
                 stops: const [0.2, 0.9],
@@ -81,8 +81,9 @@ class _SearchScreenState extends State<SearchScreen> {
             ),
           ),
           leading: IconButton(
-            onPressed: (){
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => JobScreen()));
+            onPressed: () {
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => JobScreen()));
             },
             icon: const Icon(Icons.arrow_back),
           ),
@@ -95,22 +96,20 @@ class _SearchScreenState extends State<SearchScreen> {
               .where('jobTitle', isGreaterThanOrEqualTo: searchQuery)
               .where('recruitment', isEqualTo: true)
               .snapshots(),
-          builder: (context, AsyncSnapshot snapshot)
-          {
-            if(snapshot.connectionState == ConnectionState.waiting)
-            {
-              return const Center(child: CircularProgressIndicator(),);
-            }
-            else if (snapshot.connectionState == ConnectionState.active)
-            {
-              if(snapshot.data?.docs.isNotEmpty == true)
-              {
+          builder: (context, AsyncSnapshot snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            } else if (snapshot.connectionState == ConnectionState.active) {
+              if (snapshot.data?.docs.isNotEmpty == true) {
                 return ListView.builder(
                   itemCount: snapshot.data?.docs.length,
-                  itemBuilder: (BuildContext context, int index){
+                  itemBuilder: (BuildContext context, int index) {
                     return JobWidget(
                       jobTitle: snapshot.data?.docs[index]['jobTitle'],
-                      jobDescription: snapshot.data?.docs[index]['jobDescription'],
+                      jobDescription: snapshot.data?.docs[index]
+                          ['jobDescription'],
                       jobId: snapshot.data?.docs[index]['jobId'],
                       uploadedBy: snapshot.data?.docs[index]['uploadedBy'],
                       userImage: snapshot.data?.docs[index]['userImage'],
@@ -121,9 +120,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     );
                   },
                 );
-              }
-              else
-              {
+              } else {
                 return const Center(
                   child: Text('There is no jobs'),
                 );

@@ -4,18 +4,15 @@ import 'package:jobzee/Widgets/all_companies_widget.dart';
 import 'package:jobzee/Widgets/bottom_nav_bar.dart';
 
 class AllWorkersScreen extends StatefulWidget {
-
   @override
   State<AllWorkersScreen> createState() => _AllWorkersScreenState();
 }
 
 class _AllWorkersScreenState extends State<AllWorkersScreen> {
-
   final TextEditingController _searchQueryController = TextEditingController();
   String searchQuery = 'Search query';
 
-  Widget _buildSearchField()
-  {
+  Widget _buildSearchField() {
     return TextField(
       controller: _searchQueryController,
       autocorrect: true,
@@ -29,29 +26,26 @@ class _AllWorkersScreenState extends State<AllWorkersScreen> {
     );
   }
 
-  List<Widget> _buildActions()
-  {
+  List<Widget> _buildActions() {
     return <Widget>[
       IconButton(
         icon: const Icon(Icons.clear),
-        onPressed: (){
+        onPressed: () {
           _clearSearchQuery();
         },
       ),
     ];
   }
 
-  void _clearSearchQuery()
-  {
-    setState((){
+  void _clearSearchQuery() {
+    setState(() {
       _searchQueryController.clear();
       updateSearchQuery('');
     });
   }
 
-  void updateSearchQuery(String newQuery)
-  {
-    setState((){
+  void updateSearchQuery(String newQuery) {
+    setState(() {
       searchQuery = newQuery;
       print(searchQuery);
     });
@@ -61,21 +55,28 @@ class _AllWorkersScreenState extends State<AllWorkersScreen> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [Colors.deepOrange.shade300, Colors.blueAccent],
-          begin: Alignment.centerLeft,
-          end: Alignment.centerRight,
-          stops: const [0.2, 0.9],
+        image: DecorationImage(
+          image: AssetImage('assets/images/background.jpg'),
+          fit: BoxFit.cover,
         ),
+
+        // gradient: LinearGradient(
+        //   colors: [Colors.deepOrange.shade300, Colors.blueAccent],
+        //   begin: Alignment.centerLeft,
+        //   end: Alignment.centerRight,
+        //   stops: const [0.2, 0.9],
+        // ),
       ),
       child: Scaffold(
-        bottomNavigationBar: BottomNavigationBarForApp(indexNum: 1,),
+        bottomNavigationBar: BottomNavigationBarForApp(
+          indexNum: 1,
+        ),
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           flexibleSpace: Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [Colors.deepOrange.shade300, Colors.blueAccent],
+                colors: [Colors.blue, Colors.purple],
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
                 stops: const [0.2, 0.9],
@@ -87,49 +88,42 @@ class _AllWorkersScreenState extends State<AllWorkersScreen> {
           actions: _buildActions(),
         ),
         body: StreamBuilder<QuerySnapshot>(
-          stream: FirebaseFirestore.instance
-              .collection('users')
-              .where('name', isGreaterThanOrEqualTo: searchQuery)
-              .snapshots(),
-          builder: (context, AsyncSnapshot snapshot)
-          {
-            if(snapshot.connectionState == ConnectionState.waiting)
-            {
-              return const Center(child: CircularProgressIndicator(),);
-            }
-            else if(snapshot.connectionState == ConnectionState.active)
-            {
-              if(snapshot.data!.docs.isNotEmpty)
-              {
-                return ListView.builder(
-                  itemCount: snapshot.data!.docs.length,
-                  itemBuilder: (BuildContext context , int index)
-                  {
-                    return AllWorkersWidget(
-                      userID: snapshot.data!.docs[index]['id'],
-                      userName: snapshot.data!.docs[index]['name'],
-                      userEmail: snapshot.data!.docs[index]['email'],
-                      phoneNumber: snapshot.data!.docs[index]['phoneNumber'],
-                      userImageUrl: snapshot.data!.docs[index]['userImage'],
-                    );
-                  }
-                );
-              }
-              else
-              {
+            stream: FirebaseFirestore.instance
+                .collection('users')
+                .where('name', isGreaterThanOrEqualTo: searchQuery)
+                .snapshots(),
+            builder: (context, AsyncSnapshot snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Center(
-                  child: Text('There is no users'),
+                  child: CircularProgressIndicator(),
                 );
+              } else if (snapshot.connectionState == ConnectionState.active) {
+                if (snapshot.data!.docs.isNotEmpty) {
+                  return ListView.builder(
+                      itemCount: snapshot.data!.docs.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return AllWorkersWidget(
+                          userID: snapshot.data!.docs[index]['id'],
+                          userName: snapshot.data!.docs[index]['name'],
+                          userEmail: snapshot.data!.docs[index]['email'],
+                          phoneNumber: snapshot.data!.docs[index]
+                              ['phoneNumber'],
+                          userImageUrl: snapshot.data!.docs[index]['userImage'],
+                        );
+                      });
+                } else {
+                  return const Center(
+                    child: Text('There is no users'),
+                  );
+                }
               }
-            }
-            return const Center(
-              child: Text(
-                'Something went wrong',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
-              ),
-            );
-          }
-        ),
+              return const Center(
+                child: Text(
+                  'Something went wrong',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+                ),
+              );
+            }),
       ),
     );
   }
