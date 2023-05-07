@@ -4,18 +4,15 @@ import 'package:jobzee/Widgets/all_companies_widget.dart';
 import 'package:jobzee/Widgets/bottom_nav_bar.dart';
 
 class AllWorkersScreen extends StatefulWidget {
-
   @override
   State<AllWorkersScreen> createState() => _AllWorkersScreenState();
 }
 
 class _AllWorkersScreenState extends State<AllWorkersScreen> {
-
   final TextEditingController _searchQueryController = TextEditingController();
   String searchQuery = 'Search query';
 
-  Widget _buildSearchField()
-  {
+  Widget _buildSearchField() {
     return TextField(
       controller: _searchQueryController,
       autocorrect: true,
@@ -29,29 +26,26 @@ class _AllWorkersScreenState extends State<AllWorkersScreen> {
     );
   }
 
-  List<Widget> _buildActions()
-  {
+  List<Widget> _buildActions() {
     return <Widget>[
       IconButton(
         icon: const Icon(Icons.clear),
-        onPressed: (){
+        onPressed: () {
           _clearSearchQuery();
         },
       ),
     ];
   }
 
-  void _clearSearchQuery()
-  {
-    setState((){
+  void _clearSearchQuery() {
+    setState(() {
       _searchQueryController.clear();
       updateSearchQuery('');
     });
   }
 
-  void updateSearchQuery(String newQuery)
-  {
-    setState((){
+  void updateSearchQuery(String newQuery) {
+    setState(() {
       searchQuery = newQuery;
       print(searchQuery);
     });
@@ -61,21 +55,28 @@ class _AllWorkersScreenState extends State<AllWorkersScreen> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [Colors.deepOrange.shade300, Colors.blueAccent],
-          begin: Alignment.centerLeft,
-          end: Alignment.centerRight,
-          stops: const [0.2, 0.9],
+        image: DecorationImage(
+          image: AssetImage('assets/images/background.jpg'),
+          fit: BoxFit.cover,
         ),
+
+        // gradient: LinearGradient(
+        //   colors: [Colors.deepOrange.shade300, Colors.blueAccent],
+        //   begin: Alignment.centerLeft,
+        //   end: Alignment.centerRight,
+        //   stops: const [0.2, 0.9],
+        // ),
       ),
       child: Scaffold(
-        bottomNavigationBar: BottomNavigationBarForApp(indexNum: 1,),
+        bottomNavigationBar: BottomNavigationBarForApp(
+          indexNum: 1,
+        ),
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           flexibleSpace: Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [Colors.deepOrange.shade300, Colors.blueAccent],
+                colors: [Colors.blue, Colors.purple],
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
                 stops: const [0.2, 0.9],
@@ -118,7 +119,7 @@ class _AllWorkersScreenState extends State<AllWorkersScreen> {
               else
               {
                 return const Center(
-                  child: Text('There are no users'),
+                  child: Text('There is no users'),
                 );
               }
             }
