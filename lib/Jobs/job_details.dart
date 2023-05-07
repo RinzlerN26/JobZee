@@ -127,7 +127,7 @@ class _JobDetailsScreenState extends State<JobDetailsScreen> {
       'applicants': applicants + 1,
     });
 
-    Navigator.pop(context);
+     Navigator.canPop(context) ? Navigator.pop(context) : null;
   }
 
   @override
