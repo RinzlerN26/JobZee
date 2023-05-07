@@ -118,7 +118,7 @@ class _AllWorkersScreenState extends State<AllWorkersScreen> {
               else
               {
                 return const Center(
-                  child: Text('There is no users'),
+                  child: Text('There are no users'),
                 );
               }
             }

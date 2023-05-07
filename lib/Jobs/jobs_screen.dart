@@ -189,7 +189,7 @@ class _JobScreenState extends State<JobScreen> {
               else
               {
                 return const Center(
-                  child: Text('There is no jobs'),
+                  child: Text('There are no jobs'),
                 );
               }
             }
