@@ -1,16 +1,41 @@
-# jobzee
+# Jobzee
 
-A new Flutter project.
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-## Getting Started
+A part time job-sharing and job-finding app made with Flutter framework and Firebase as Backend infrastructure
 
-This project is a starting point for a Flutter application.
+### Built With
 
-A few resources to get you started if this is your first Flutter project:
+* [![Flutter](https://img.shields.io/badge/Flutter#02569B?style=for-the-badge&logo=flutter)
+* [![Firebase](https://img.shields.io/badge/Firebase#DD2C00?style=for-the-badge&logo=firebase)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Prerequisites
+
+Flutter SDK and Android emulator with API level>=33
+* 
+  ```sh
+  npm install npm@latest -g
+  ```
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/RinzlerN26/JobZee.git
+   ```
+2. Run pub get
+   ```sh
+   flutter pub get
+   ```
+3. Run the app on emulator or phone using USB debugging
+   ```js
+   flutter run
+   ```
+
+
+
+
+
+
