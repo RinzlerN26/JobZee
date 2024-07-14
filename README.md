@@ -1,6 +1,6 @@
 # JobZee
 
-A part time job-sharing and job-finding app made with Flutter framework and Firebase.
+A part time job-sharing and job-finding app made with Flutter and Firebase.
 
 ### Built With
 
