@@ -3,7 +3,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-A part time job-sharing and job-finding app made with Flutter framework and Firebase as Backend infrastructure
+A part time job-sharing and job-finding app made with Flutter framework and Firebase.
 
 ### Built With
 
@@ -13,7 +13,7 @@ A part time job-sharing and job-finding app made with Flutter framework and Fire
 
 ### Prerequisites
 
-Flutter SDK and Android emulator with API level>=33
+Flutter SDK and Android emulator with API level>=33.
 
 ### Installation
 
