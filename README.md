@@ -15,18 +15,18 @@ Flutter SDK and Android emulator with API level>=33.
 
 ### Installation
 
-1. Clone the repo
+1. Clone the repo.
    
    ```sh
    git clone https://github.com/RinzlerN26/JobZee.git
    ```
-2. Run pub get
+2. Run pub get to update packages and dependencies.
    
    ```sh
    flutter pub get
    ```
    
-3. Run the app on emulator or phone using USB debugging
+3. Run the app.
    ```js
    flutter run
    ```
