@@ -11,7 +11,8 @@ A part time job-sharing and job-finding app made with Flutter and Firebase.
 
 ### Prerequisites
 
-Flutter SDK and Android emulator with API level>=33.
+* Flutter SDK
+* Android emulator with API level>=33.
 
 ### Installation
 
