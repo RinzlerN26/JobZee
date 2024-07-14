@@ -27,7 +27,7 @@ Flutter SDK and Android emulator with API level>=33.
    ```
    
 3. Run the app.
-   ```js
+   ```sh
    flutter run
    ```
 
