@@ -20,7 +20,7 @@ Flutter SDK and Android emulator with API level>=33.
    ```sh
    git clone https://github.com/RinzlerN26/JobZee.git
    ```
-2. Run pub get to update packages and dependencies.
+2. Run pub get.
    
    ```sh
    flutter pub get
