@@ -7,17 +7,13 @@ A part time job-sharing and job-finding app made with Flutter framework and Fire
 
 ### Built With
 
-* [![Flutter](https://img.shields.io/badge/Flutter#02569B?style=for-the-badge&logo=flutter)
-* [![Firebase](https://img.shields.io/badge/Firebase#DD2C00?style=for-the-badge&logo=firebase)
+* [![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter)
+* [![Firebase](https://img.shields.io/badge/Firebase-DD2C00?style=for-the-badge&logo=firebase)
 
 
 ### Prerequisites
 
 Flutter SDK and Android emulator with API level>=33
-* 
-  ```sh
-  npm install npm@latest -g
-  ```
 
 ### Installation
 
