@@ -1,8 +1,5 @@
 # JobZee
 
-<!-- ABOUT THE PROJECT -->
-## About The Project
-
 A part time job-sharing and job-finding app made with Flutter framework and Firebase.
 
 ### Built With
@@ -19,13 +16,16 @@ Flutter SDK and Android emulator with API level>=33.
 ### Installation
 
 1. Clone the repo
+   
    ```sh
    git clone https://github.com/RinzlerN26/JobZee.git
    ```
 2. Run pub get
+   
    ```sh
    flutter pub get
    ```
+   
 3. Run the app on emulator or phone using USB debugging
    ```js
    flutter run
